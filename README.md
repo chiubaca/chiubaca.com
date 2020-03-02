@@ -1,14 +1,11 @@
-# Default starter for Gridsome
+# My new blog and portfolio site built with Gridsome 🚀 
 
-This is the project you get when you run `gridsome create new-project`.
+🚧 WORK IN PROGRESS 🚧
 
-### 1. Install Gridsome CLI tool if you don't have
+## Developing Locally
 
-`npm install --global @gridsome/cli`
+`yarn dev`
 
-### 2. Create a Gridsome project
+## Gridsome GraphQL Explorer
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+`yarn explore`
