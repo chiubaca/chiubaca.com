@@ -8,7 +8,9 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "npm run lint:js"
+    "lint": "npm run lint:js",
+    "dev:get-devto-posts": "env NODE_ENV=development node ./scripts/getDevtoPosts.js",
+    "deploy": "node ./scripts/getDevtoPosts.js && nuxt-ts generate"
   },
   "dependencies": {
     "@nuxt/content": "^1.9.0",
@@ -24,7 +26,9 @@
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/tailwindcss": "^3.1.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.1.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
