@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'development') {
 
 async function main() {
   const response = await axios.get(
-    'https://dev.to/api/articles/me/published?page=1&per_page=30',
+    'https://dev.to/api/articles/me/published?page=1&per_page=1000',
     {
       headers: { 'api-key': process.env.DEVTO_KEY },
     }
@@ -23,7 +23,6 @@ test: this is a test
 
 ${article.body_markdown}
 `
-
     fs.writeFile(
       `./content/${article.slug}.md`, // pathc file will be created to
       contentWithFrontMatter, // content of markdown
@@ -34,10 +33,6 @@ ${article.body_markdown}
     )
     console.log(article.id)
   })
-
-  // for (article in response){
-  //   console.log(article)
-  // }
 }
 
 main()
