@@ -1,5 +1,5 @@
 {
-  "name": "move-this",
+  "name": "chiubaca-dev-blog",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,8 @@
     "dev:devto-published-posts": "env NODE_ENV=development node ./scripts/getDevtoLivePosts.js",
     "devto-live-posts": "node ./scripts/getDevtoLivePosts.js",
     "dev:devto-draft-posts": "env NODE_ENV=development node ./scripts/getDevtoDraftPosts.js",
-    "devto-published-posts": "node ./scripts/getDevtoDraftPosts.js"
+    "devto-published-posts": "node ./scripts/getDevtoDraftPosts.js",
+    "webhook":"node ./scripts/test.js"
   },
   "dependencies": {
     "@nuxt/content": "^1.9.0",
