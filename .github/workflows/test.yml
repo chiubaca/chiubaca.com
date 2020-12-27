@@ -1,8 +1,6 @@
 name: Webhook Test
 on:
   repository_dispatch:
-    types: 
-      - webhook-one
 jobs:
   build:
     runs-on: ubuntu-latest
