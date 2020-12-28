@@ -15,8 +15,7 @@ async function main() {
 
   const articles = response.data
   articles.forEach((article) => {
-    const contentWithFrontMatter = 
-`---
+    const contentWithFrontMatter = `---
 title: ${article.title}
 test: this is a test
 draft: true
