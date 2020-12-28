@@ -15,3 +15,4 @@ jobs:
     - run: npm run devto-draft-posts
       env:
         GH_KEY : ${{ secrets.GH_KEY }}
+        DEVTO_KEY : ${{ secrets.DEVTO_KEY }}
