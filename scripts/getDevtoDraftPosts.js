@@ -1,3 +1,9 @@
+/**
+ * Get all Devto Draft posts.
+ * This is will be invoked by Github Action. Local Development mode we write the files to disk
+ * When in the context of Github it needs to write to the repo via githubAPI.
+ */
+
 const fs = require('fs')
 const axios = require('axios')
 
@@ -23,6 +29,7 @@ draft: true
 
 ${article.body_markdown}
 `
+
     fs.writeFile(
       `./content/drafts/${article.slug}.md`, // pathc file will be created to
       contentWithFrontMatter, // content of markdown
@@ -33,6 +40,8 @@ ${article.body_markdown}
     )
     console.log(article.id)
   })
+
+
 }
 
 main()
