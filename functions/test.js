@@ -5,7 +5,7 @@ const handler = async () => {
   try {
     const url = 'https://api.github.com/repos/chiubaca/dev-blog/dispatches'
     const data = {
-      event_type: 'netlify_webhook_test',
+      event_type: 'netlify_webhook',
     }
     const options = {
       headers: {
@@ -19,9 +19,6 @@ const handler = async () => {
     return {
       statusCode: 200,
       body: 'web hook invoked',
-      // // more keys you can return:
-      // headers: { "headerName": "headerValue", ... },
-      // isBase64Encoded: true,
     }
   } catch (error) {
     console.error(error)
