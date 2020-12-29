@@ -1,5 +1,5 @@
 <template>
-  <article>{{ post.body_markdown }}</article>
+  <article v-html="post.body_html"></article>
 </template>
 
 <script lang="ts">
