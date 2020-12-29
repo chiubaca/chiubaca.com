@@ -32,3 +32,6 @@ declare module DevTo {
     user: User
   }
 }
+
+declare module 'vfile-reporter'
+declare module 'rehype-format'
