@@ -1,17 +1,17 @@
 <template>
-  <article>
-    <nuxt-content :document="article" />
-  </article>
+  <article>{{ post.body_markdown }}</article>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
 export default Vue.extend({
-  async asyncData({ $content, params }) {
-    const article = await $content('/', params.slug).fetch()
+  async asyncData({ params, $axios }) {
+    const post: DevTo.Article = await $axios.$get(
+      'https://dev.to/api/articles/chiubaca/' + params.slug
+    )
 
-    return { article }
+    return { post }
   },
 })
 </script>
