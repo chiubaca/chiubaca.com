@@ -6,7 +6,7 @@
     <h2>Blogs</h2>
     <p>(Musings About Life and Fitness)</p>
     <div class="article" v-for="(blog, index) in blogs" :key="index">
-      <NuxtLink :to="`blog/${blog.slug}`"> {{ blog.title }}</NuxtLink>
+      <NuxtLink :to="`${blog.slug}`"> {{ blog.title }}</NuxtLink>
       <p>Posted on: {{ new Date(blog.date).toDateString() }}</p>
     </div>
 
@@ -33,7 +33,7 @@ export default Vue.extend({
       }
     )
 
-    const blogs = await $content('blog').fetch()
+    const blogs = await $content('/').fetch()
 
     return { devToArticles, blogs }
   },

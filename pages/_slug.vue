@@ -9,7 +9,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData({ $content, params }) {
-    const blog = await $content('blog', params.slug).fetch()
+    const blog = await $content('/', params.slug).fetch()
 
     return { blog }
   },
