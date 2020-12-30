@@ -1,16 +1,16 @@
 <template>
-  <article v-html="highlightedHTML.value"></article>
+  <article v-html="post.body_html"></article>
 </template>
 
 <script lang="ts">
 /**
- * 
+ *
  * Hooo boy it's a mess in here...
  * Cant decide if I should be parsing the markdown or just use the body_html
- * 
+ *
  * using markdown I have more control but need to work out how to process the shortcode
  * using the html everything has been processed but need to figure out how to use highlight.js to style the code blocks
- * 
+ *
  */
 
 import Vue from 'vue'
