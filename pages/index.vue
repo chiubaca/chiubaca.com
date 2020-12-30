@@ -1,12 +1,19 @@
 <template>
   <div class="">
     <h1>Alex Chiu</h1>
+    <h2>Web Developer / Learning In Public / Building For Fun</h2>
+
+    <h2>Blogs</h2>
+    <p>Musings About Life and Fitness</p>
 
     <h2>Recent Dev.to Articles</h2>
-    <div v-for="(post, index) in posts" :key="index">
-      <p>{{ Date(post.published_at) }}</p>
+    <p>Web Dev and Programming related articles</p>
+    <div v-for="(post, index) in posts" :key="index" class="article">
       <a :href="post.url">{{ post.title }} </a>
+      <p>Posted on: {{ new Date(post.published_at).toDateString() }}</p>
     </div>
+
+
   </div>
 </template>
 
@@ -27,4 +34,8 @@ export default Vue.extend({
 })
 </script>
 
-<style></style>
+<style>
+.article {
+  padding-top: 10px;
+}
+</style>
