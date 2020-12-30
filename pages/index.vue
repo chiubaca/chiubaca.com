@@ -5,7 +5,7 @@
 
     <h2>Blogs</h2>
     <p>(Musings about life, wellbeing and fitness)</p>
-    <div class="article" v-for="(blog, index) in blogs" :key="index">
+    <div v-for="(blog, index) in blogs" :key="index" class="article">
       <NuxtLink :to="`${blog.slug}`"> {{ blog.title }}</NuxtLink>
       <p>Posted on: {{ new Date(blog.date).toDateString() }}</p>
     </div>
@@ -16,8 +16,6 @@
       <a :href="article.url">{{ article.title }} </a>
       <p>Posted on: {{ new Date(article.published_at).toDateString() }}</p>
     </div>
-
-
   </div>
 </template>
 

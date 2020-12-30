@@ -1,13 +1,13 @@
 <template>
   <div>
-    <ThemeToggle/>
+    <ThemeToggle />
     <Nuxt />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import ThemeToggle from "@/components/ThemeToggle.vue"
+import ThemeToggle from '@/components/ThemeToggle.vue'
 
 export default Vue.extend({
   components: {
@@ -16,5 +16,4 @@ export default Vue.extend({
 })
 </script>
 
-<style>
-</style>
+<style></style>
