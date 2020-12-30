@@ -1,10 +1,9 @@
 <template>
-  <div class="">
+  <div>
     <h1>Archived Posts</h1>
-
     <div v-for="(post, index) in archivedPosts" :key="index">
       <NuxtLink :to="`archive/${post.slug}`"> {{ post.title }}</NuxtLink>
-      {{ post.title }}
+      <p>Posted on: {{ post.date }}</p>
     </div>
   </div>
 </template>
