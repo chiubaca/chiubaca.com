@@ -4,13 +4,14 @@
       <NuxtLink to="/" tag="h1">Alex Chiu</NuxtLink>
       <ThemeToggle />
     </nav>
-    <p>Full Stack Developer / Learning In Public / Building For Fun</p>
-
+    <p>👉 Full Stack Developer / Learning In Public / Building For Fun</p>
     <hr />
-
+    <Links />
     <Nuxt />
-
-    <Footer />
+    <footer>
+      <hr />
+      <Links />
+    </footer>
   </div>
 </template>
 
