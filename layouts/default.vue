@@ -13,7 +13,6 @@
       👉 Full Stack Developer / Learning In Public / Building For Fun
     </p>
     <hr />
-    <Links />
     <Nuxt />
     <footer>
       <hr />
