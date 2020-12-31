@@ -6,10 +6,12 @@ html[data-theme="light"] {
     --background: #FCFAF6;
     --primary: rgb(44, 44, 44);
     --secondary: white;
+    --links: #0288ee;
 }
 
 html[data-theme="dark"] {
     --background: #093050;
     --primary: #FFFFFF;
     --secondary: white;
+    --links: #0992fa;
 }
