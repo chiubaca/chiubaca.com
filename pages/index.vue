@@ -26,6 +26,11 @@
         </p>
       </div>
     </div>
+
+    <div class="archive">
+      <NuxtLink to="archive" tag="h1">Archive</NuxtLink>
+      <p>Writings from my old blog. Awkward.</p>
+    </div>
   </div>
 </template>
 
@@ -67,5 +72,14 @@ export default Vue.extend({
 
 .subtext {
   font-style: italic;
+}
+
+.archive {
+  padding-top: 10px;
+}
+
+.archive:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 </style>
