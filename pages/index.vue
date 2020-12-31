@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="devto">
-      <h2>Dev.to Articles</h2>
+      <h2>👨‍💻 Dev.to Articles</h2>
       <p class="subtext">Web development and ramblings about programming</p>
       <p></p>
       <div
@@ -17,7 +17,7 @@
     </div>
 
     <div class="blogs">
-      <h2>Blogs</h2>
+      <h2>📝 Blogs</h2>
       <p class="subtext">Musings about life, wellbeing and fitness</p>
       <div v-for="(blog, index) in blogs" :key="index" class="article">
         <NuxtLink :to="`${blog.slug}`"> {{ blog.title }}</NuxtLink>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="archive">
-      <NuxtLink to="archive" tag="h1">Archive</NuxtLink>
+      <NuxtLink to="archive" tag="h1">🗄️ Archive</NuxtLink>
       <p>Writings from my old blog. Awkward.</p>
     </div>
   </div>
@@ -53,7 +53,7 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
 .devto {
   padding-top: 25px;
 }
