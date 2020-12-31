@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="archive">
     <h1>Archived Posts</h1>
-    <div v-for="(post, index) in archivedPosts" :key="index">
+    <p>Awkward old blogs 🙈</p>
+    <div v-for="(post, index) in archivedPosts" :key="index" class="article">
       <NuxtLink :to="`archive/${post.slug}`"> {{ post.title }}</NuxtLink>
-      <p>Posted on: {{ post.date }}</p>
+      <p class="timestamp">Posted on: {{ post.date }}</p>
     </div>
   </div>
 </template>
@@ -19,4 +20,17 @@ export default Vue.extend({
 })
 </script>
 
-<style></style>
+<style scoped>
+.archive {
+  padding-top: 25px;
+}
+
+.article {
+  padding-top: 10px;
+}
+
+.timestamp {
+  font-size: 0.8em;
+  color: grey;
+}
+</style>
