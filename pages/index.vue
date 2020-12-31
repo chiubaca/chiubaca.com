@@ -1,20 +1,30 @@
 <template>
   <div class="">
-    <h1>Alex Chiu</h1>
-    <h2>Web Developer / Learning In Public / Building For Fun</h2>
-
-    <h2>Blogs</h2>
-    <p>(Musings about life, wellbeing and fitness)</p>
-    <div v-for="(blog, index) in blogs" :key="index" class="article">
-      <NuxtLink :to="`${blog.slug}`"> {{ blog.title }}</NuxtLink>
-      <p>Posted on: {{ new Date(blog.date).toDateString() }}</p>
+    <div class="devto">
+      <h2>Dev.to Articles</h2>
+      <p class="subtext">Web development and ramblings about programming</p>
+      <p></p>
+      <div
+        v-for="(article, index) in devToArticles"
+        :key="index"
+        class="article"
+      >
+        <a :href="article.url">{{ article.title }} </a>
+        <p class="timestamp">
+          Posted on: {{ new Date(article.published_at).toDateString() }}
+        </p>
+      </div>
     </div>
 
-    <h2>Recent Dev.to Articles</h2>
-    <p>(Web development and ramblings about programming)</p>
-    <div v-for="(article, index) in devToArticles" :key="index" class="article">
-      <a :href="article.url">{{ article.title }} </a>
-      <p>Posted on: {{ new Date(article.published_at).toDateString() }}</p>
+    <div class="blogs">
+      <h2>Blogs</h2>
+      <p class="subtext">Musings about life, wellbeing and fitness</p>
+      <div v-for="(blog, index) in blogs" :key="index" class="article">
+        <NuxtLink :to="`${blog.slug}`"> {{ blog.title }}</NuxtLink>
+        <p class="timestamp">
+          Posted on: {{ new Date(blog.date).toDateString() }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +35,7 @@ import Vue from 'vue'
 export default Vue.extend({
   async asyncData({ $axios, $content }) {
     const devToArticles: DevTo.Article[] = await $axios.$get(
-      'https://dev.to/api/articles/me/published?page=1&per_page=8',
+      'https://dev.to/api/articles/me/published?page=1&per_page=1000',
       {
         headers: { 'api-key': process.env.DEVTO_KEY },
       }
@@ -39,7 +49,23 @@ export default Vue.extend({
 </script>
 
 <style>
+.devto {
+  padding-top: 25px;
+}
+.blogs {
+  padding-top: 25px;
+}
+
 .article {
   padding-top: 10px;
+}
+
+.timestamp {
+  font-size: 0.8em;
+  color: grey;
+}
+
+.subtext {
+  font-style: italic;
 }
 </style>
