@@ -9,6 +9,8 @@
     <hr />
 
     <Nuxt />
+
+    <Footer/>
   </div>
 </template>
 
