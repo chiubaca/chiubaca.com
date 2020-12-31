@@ -1,6 +1,5 @@
 <template>
   <div>
-    <hr />
     <div class="footer">
       <a href="https://twitter.com/chiubaca">twitter</a> .
       <a href="https://github.com/chiubaca">github</a> .
