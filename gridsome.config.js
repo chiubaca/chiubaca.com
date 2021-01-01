@@ -5,6 +5,16 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
-  plugins: []
+  siteName: 'Alex Chiu',
+  plugins: [
+
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'archive/*.md',
+        typeName: 'ArchivedBlogs'
+      }
+    }
+
+  ]
 }
