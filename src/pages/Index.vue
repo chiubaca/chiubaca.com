@@ -1,5 +1,12 @@
 <template>
   <Layout class="blog">
+
+    <h1>Dev.to Blogs</h1>
+        <div v-for="blog in $page.devToBlogs.edges" :key="blog.node.id">
+        <g-link :to="blog.node.slug">{{ blog.node.title }}</g-link>
+    </div>
+
+
     <h1>Archived Blogs</h1>
     <div v-for="blog in $page.archivedBlogs.edges" :key="blog.node.id">
       <g-link :to="blog.node.path">{{ blog.node.title }}</g-link>
@@ -20,7 +27,17 @@
         }
       }
     }
+    devToBlogs: allDevToPosts{
+      edges {
+        node {
+          id
+          title
+          slug
+        }
+      }
+    }
   }
+
 </page-query>
 
 <script>
