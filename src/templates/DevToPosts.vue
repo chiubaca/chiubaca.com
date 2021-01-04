@@ -1,11 +1,6 @@
 <template>
   <Layout>
-    <div class="article">
-      <!-- <h1>{{ $page.blogs.title }}</h1>
-      <span>{{ $page.blogs.publishedAt }}</span> -->
-      Test!
-      {{ $page.blogs }}
-    </div>
+    <div v-html="$page.posts.body_html"></div>
   </Layout>
 </template>
 
@@ -13,18 +8,17 @@
 export default {
   metaInfo() {
     return {
-      title: this.$page.blogs.title
+      // title: this.$page.posts.title
     };
-  }
+  },
 };
 </script>
 
 <page-query>
   query devToPosts ($path: String!) {
-    blogs: devToPosts (path: $path) {
+    posts: devToPosts (path: $path) {
       title
-      publishedAt
-      bodyMarkdown
+      body_html
     }
   }
 </page-query>
