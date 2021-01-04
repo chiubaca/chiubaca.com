@@ -5,11 +5,15 @@
 </template>
 
 <script>
+
 export default {
   metaInfo() {
     return {
       // title: this.$page.posts.title
     };
+  },
+  mounted () {
+    console.log("mounted!", this.$page.posts.body_markdown)
   },
 };
 </script>
@@ -19,6 +23,7 @@ export default {
     posts: devToPosts (path: $path) {
       title
       body_html
+      body_markdown
     }
   }
 </page-query>
