@@ -1,11 +1,11 @@
 <template>
   <Layout class="blog">
-
     <h1>👨‍💻 Dev.to Blogs</h1>
-        <div v-for="blog in $page.devToBlogs.edges" :key="blog.node.id">
-        <g-link :to="blog.node.path">{{ blog.node.title }}</g-link>
+    <div v-for="blog in $page.devToBlogs.edges" :key="blog.node.id">
+      <g-link :to="blog.node.path">{{ blog.node.title }}</g-link>
     </div>
 
+    <Pager :info="$page.devToBlogs.pageInfo"/>
 
     <h1>Archived Blogs</h1>
     <div v-for="blog in $page.archivedBlogs.edges" :key="blog.node.id">
@@ -15,7 +15,7 @@
 </template>
 
 <page-query>
-  query  {
+  query ($page: Int)  {
     archivedBlogs: allArchivedBlogs{
       edges {
         node {
@@ -27,7 +27,11 @@
         }
       }
     }
-    devToBlogs: allDevToPosts{
+    devToBlogs: allDevToPosts(perPage: 5, page: $page) @paginate {
+      pageInfo {
+        totalPages
+        currentPage
+      }
       edges {
         node {
           id
@@ -37,11 +41,14 @@
       }
     }
   }
-
 </page-query>
 
 <script>
+import { Pager } from "gridsome";
 export default {
+  components: {
+    Pager,
+  },
   metaInfo: {
     title: "Blog",
   },
