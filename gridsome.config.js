@@ -14,7 +14,18 @@ module.exports = {
         path: 'archive/*.md',
         typeName: 'ArchivedBlogs'
       }
+    },
+    {
+      use:'@chiubaca/gridsome-source-devto',
+      options : {
+        typeName: 'DevToPosts',
+        devtoAPIKey: process.env.DEVTO_KEY
+      }
     }
 
-  ]
+  ],
+  templates: {
+    ArchivedBlogs: '/archive/:title',
+    DevToPosts: '/:title'
+  }
 }
