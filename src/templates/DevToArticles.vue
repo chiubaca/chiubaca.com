@@ -1,29 +1,25 @@
 <template>
   <Layout>
-    <div v-html="$page.posts.body_html"></div>
+    <h1>{{ $page.article.title }}</h1>
+    <article v-html="$page.article.parsed_markdown"></article>
   </Layout>
 </template>
 
 <script>
-
 export default {
   metaInfo() {
     return {
-      // title: this.$page.posts.title
+      title: this.$page.article.title,
     };
-  },
-  mounted () {
-    console.log("mounted!", this.$page.posts.body_markdown)
   },
 };
 </script>
 
 <page-query>
-  query devToPosts ($path: String!) {
-    posts: devToPosts (path: $path) {
+  query DevToArticles ($path: String!) {
+    article: devToArticles (path: $path) {
       title
-      body_html
-      body_markdown
+      parsed_markdown
     }
   }
 </page-query>
