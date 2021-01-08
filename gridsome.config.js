@@ -21,8 +21,10 @@ module.exports = {
         typeName: 'DevToArticles',
         devtoAPIKey: process.env.DEVTO_KEY
       }
+    },
+    {
+      use: 'gridsome-plugin-typescript',
     }
-
   ],
   templates: {
     ArchivedBlogs: '/archive/:title',
