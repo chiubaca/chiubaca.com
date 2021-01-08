@@ -1,17 +1,30 @@
 <template>
   <div class="layout">
     <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
       <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
+        <g-link to="/" tag="h1">
+          <div class="nav__logo">
+            <p class="nav__title">Alex Chiu</p>
+            <p class="nav__sub">/•chiubaca•/</p>
+          </div>
+        </g-link>
+        <ThemeToggle />
       </nav>
     </header>
-    <slot/>
+    <!-- Content is slotted here -->
+    <slot />
   </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import ThemeToggle from "@/components/ThemeToggle.vue"
+export default Vue.extend({
+  components: {
+    ThemeToggle,
+  },
+})
+</script>
 
 <static-query>
 query {
@@ -22,29 +35,29 @@ query {
 </static-query>
 
 <style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
-}
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.header {
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
 }
-
-.nav__link {
-  margin-left: 20px;
+.nav h1:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.nav__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav__title {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+.nav__sub {
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+}
+.sub2 {
+  letter-spacing: 1.5px;
 }
 </style>
