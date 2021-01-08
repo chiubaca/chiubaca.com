@@ -10,6 +10,10 @@
         </g-link>
         <ThemeToggle />
       </nav>
+      <p class="sub2">
+        👉 Full Stack Developer / Learning In Public / Building For Fun
+      </p>
+      <hr />
     </header>
     <!-- Content is slotted here -->
     <slot />
@@ -17,13 +21,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import ThemeToggle from "@/components/ThemeToggle.vue"
+import Vue from "vue";
+import ThemeToggle from "@/components/ThemeToggle.vue";
 export default Vue.extend({
   components: {
     ThemeToggle,
   },
-})
+});
 </script>
 
 <static-query>
