@@ -18,7 +18,7 @@ module.exports = {
     {
       use:'@chiubaca/gridsome-source-devto',
       options : {
-        typeName: 'DevToPosts',
+        typeName: 'DevToArticles',
         devtoAPIKey: process.env.DEVTO_KEY
       }
     }
@@ -26,6 +26,13 @@ module.exports = {
   ],
   templates: {
     ArchivedBlogs: '/archive/:title',
-    DevToPosts: '/:title'
+    DevToArticles: '/:title'
+  },
+  transformers: {
+    remark: {
+      plugins: [
+        '@gridsome/remark-prismjs'
+      ]
+    }
   }
 }
