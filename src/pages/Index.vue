@@ -92,7 +92,7 @@ export default {
 
 .post {
   padding-top: 10px;
-  line-height: 16px;
+  line-height: 20px;
 }
 
 .archive * {
