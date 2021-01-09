@@ -1,7 +1,16 @@
 <template>
   <Layout>
-    <h1>{{ $page.article.title }}</h1>
-    <article v-html="$page.article.parsed_markdown"></article>
+    <h1 class="title">
+      {{ $page.article.title }}
+      <span class="timestamp">
+        {{ new Date($page.article.published_at).toDateString() }}
+      </span>
+    </h1>
+
+    <p class="timestamp">
+      Last updated on : {{ new Date($page.article.edited_at).toDateString() }}
+    </p>
+    <article class="content" v-html="$page.article.parsed_markdown"></article>
   </Layout>
 </template>
 
@@ -20,49 +29,54 @@ export default {
     article: devToArticles (path: $path) {
       title
       parsed_markdown
+      published_at
+      edited_at
     }
   }
 </page-query>
 
-<style>
-/* .header {
-    margin-bottom: 70px;
-  } */
-.article {
-  margin-top: 15px;
+<style lang="scss">
+.title {
+  font-size: 2.5em;
+  padding-bottom: 10px;
+  .timestamp {
+    font-size:1rem;
+  }
 }
-.article h1 {
-  font-size: 40px;
+
+.timestamp {
+  font-style: italic;
+  color: #979797;
+  font-size:0.9rem;
 }
-.article img {
-  width: 100%;
-  border-radius: 5px;
+
+.content {
+  padding-top: 20px;
+  line-height: 200%;
 }
-.article a {
-  color: #4dba87;
-  text-decoration: underline;
+
+.content h1 {
+  font-size: 2rem;
+  padding: 30px 0 15px 0;
+
+  a:before {
+    content: "🔗"
+  }
+
 }
-.article a:hover {
-  text-decoration: none;
+
+.content h2 {
+  font-size: 1.5rem;
+  padding: 25px 0 10px 0;
+
+  a:before {
+    content: "🔗"
+  }
+
 }
-.article span {
-  font-size: 80%;
-  margin-bottom: 20px;
-}
-.article ol,
-.article ul {
-  list-style-position: outside;
-}
-.article ul {
-  list-style: disc;
-  padding-left: 20px;
-}
-.article .content p:first-child {
-  margin-top: 15px;
-}
-.article .content p {
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.5;
+
+.content img {
+   width: 100%;
+  height: 100%;
 }
 </style>

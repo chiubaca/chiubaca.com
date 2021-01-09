@@ -1,11 +1,12 @@
 <template>
   <Layout>
-    <div class="article">
-      <h1>{{ $page.post.title }}</h1>
-      <span>{{ $page.post.date }}</span>
-
-      <div class="content" v-html="$page.post.content" />
-    </div>
+    <h1 class="title">
+      {{ $page.post.title }}
+      <span class="timestamp">
+        {{ new Date($page.post.date).toDateString() }}
+      </span>
+    </h1>
+    <article class="content" v-html="$page.post.content" />
   </Layout>
 </template>
 
@@ -13,9 +14,9 @@
 export default {
   metaInfo() {
     return {
-      title: this.$page.post.title
+      title: this.$page.post.title,
     };
-  }
+  },
 };
 </script>
 
@@ -30,44 +31,4 @@ export default {
 </page-query>
 
 <style>
-/* .header {
-    margin-bottom: 70px;
-  } */
-.article {
-  margin-top: 15px;
-}
-.article h1 {
-  font-size: 40px;
-}
-.article img {
-  width: 100%;
-  border-radius: 5px;
-}
-.article a {
-  color: #4dba87;
-  text-decoration: underline;
-}
-.article a:hover {
-  text-decoration: none;
-}
-.article span {
-  font-size: 80%;
-  margin-bottom: 20px;
-}
-.article ol,
-.article ul {
-  list-style-position: outside;
-}
-.article ul {
-  list-style: disc;
-  padding-left: 20px;
-}
-.article .content p:first-child {
-  margin-top: 15px;
-}
-.article .content p {
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
 </style>
