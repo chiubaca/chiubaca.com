@@ -1,25 +1,41 @@
 <template>
   <Layout>
-    <h1>👨‍💻 Dev Blogs</h1>
-    <p class="subtext">Web development and ramblings about programming</p>
-    <div class="post" v-for="blog in $page.articles.edges" :key="blog.node.id">
-      <g-link :to="blog.node.path">{{ blog.node.title }}</g-link>
-      <p class="timestamp">posted on : {{ new Date(blog.node.published_at).toDateString() }}</p>
-    </div>
+    <section>
+      <h1>👨‍💻 Dev Blogs</h1>
+      <p class="subtext">> Web development and ramblings about programming</p>
+      <div
+        class="post"
+        v-for="blog in $page.articles.edges"
+        :key="blog.node.id"
+      >
+        <g-link :to="blog.node.path">{{ blog.node.title }}</g-link>
+        <p class="timestamp">
+          posted on : {{ new Date(blog.node.published_at).toDateString() }}
+        </p>
+      </div>
+    </section>
 
-    <h1>📘 Dev Journal</h1>
-    <p>Stories of success and mishaps whilst working on side projects</p>
-    <div class="post" v-for="blog in $page.devDiary.edges" :key="blog.node.id">
-      <a :href="blog.node.url">{{ blog.node.title }}</a>
-      <p class="timestamp">posted on : {{ new Date(blog.node.published_at).toDateString()}}</p>
-    </div>
+    <section>
+      <h1>📘 Dev Journal</h1>
+      <p>> Stories of success and mishaps whilst working on side projects</p>
+      <div
+        class="post"
+        v-for="blog in $page.devDiary.edges"
+        :key="blog.node.id"
+      >
+        <a :href="blog.node.url">{{ blog.node.title }}</a>
+        <p class="timestamp">
+          posted on : {{ new Date(blog.node.published_at).toDateString() }}
+        </p>
+      </div>
+    </section>
 
-    <h1>🗄️ Archive</h1>
-    <p>Writings from my old website</p>
-    <div class="post" v-for="(post, index) in $page.archivedBlogs.edges" :key="index">
-      <g-link :to="post.node.path">{{ post.node.title }}</g-link>
-      <p class="timestamp">posted on : {{  new Date(post.node.date).toDateString() }}</p>
-    </div>
+    <section>
+      <g-link to="/archive" class="archive">
+        <h1>🗄️ Archive</h1>
+        <p>> Writings from my old website</p>
+      </g-link>
+    </section>
   </Layout>
 </template>
 
@@ -68,15 +84,22 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.timestamp {
+  font-size: 0.8em;
+  color: grey;
+}
 
-  .timestamp {
-    font-size: 0.8em;
-    color: grey;
-  }
+.post {
+  padding-top: 10px;
+  line-height: 16px;
+}
 
-  .post {
-    padding-top: 10px;
-    line-height: 16px;
-  }
+.archive * {
+  color: var(--primary);
+}
+
+section {
+  padding-top: 25px;
+}
 </style>
