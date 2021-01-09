@@ -1,12 +1,12 @@
 <template>
   <Layout>
-    <h1 class="title">
+    <h1 class="article__title">
       {{ $page.post.title }}
-      <span class="timestamp">
-        {{ new Date($page.post.date).toDateString() }}
-      </span>
     </h1>
-    <article class="content" v-html="$page.post.content" />
+    <p class="article__timestamp">
+     Posted on : {{ new Date($page.post.date).toDateString() }}
+    </p>
+    <article class="article__content" v-html="$page.post.content" />
   </Layout>
 </template>
 
@@ -29,6 +29,3 @@ export default {
     }
   }
 </page-query>
-
-<style>
-</style>
