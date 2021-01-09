@@ -63,5 +63,6 @@ query {
 }
 .sub2 {
   letter-spacing: 1.5px;
+  padding: 15px 0 15px 0;
 }
 </style>
