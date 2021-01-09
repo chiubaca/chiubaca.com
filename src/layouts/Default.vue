@@ -83,22 +83,24 @@ query {
 }
 </static-query>
 
-<style lang="scss">
-.layout {
-  display: grid;
-  min-height: 100vh;
-  grid-template-rows: auto 1fr auto;
-}
+<style lang="scss" scoped>
+// TODO: Find a way to anchor the footer to the bottom of the page
+//  This chunk of code breaks wrapping on titles
+// .layout {
+//   // display: grid;
+//   // min-height: 100vh;
+//   // grid-template-rows: auto 1fr auto;
+// }
 
-.main {
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
+// .main {
+//   grid-row-start: 2;
+//   grid-row-end: 3;
+// }
 
-.footer {
-  grid-row-start: 3;
-  grid-row-end: 4;
-}
+// .footer {
+//   grid-row-start: 3;
+//   grid-row-end: 4;
+// }
 
 .nav {
   display: flex;
