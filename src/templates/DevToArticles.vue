@@ -2,11 +2,10 @@
   <Layout>
     <h1 class="title">
       {{ $page.article.title }}
-      <span class="timestamp">
-        {{ new Date($page.article.published_at).toDateString() }}
-      </span>
     </h1>
-
+    <p class="timestamp">
+      Posted on : {{ new Date($page.article.published_at).toDateString() }}
+    </p>
     <p class="timestamp">
       Last updated on : {{ new Date($page.article.edited_at).toDateString() }}
     </p>
@@ -39,15 +38,16 @@ export default {
 .title {
   font-size: 2.5em;
   padding-bottom: 10px;
+  word-wrap: break-word;
   .timestamp {
-    font-size:1rem;
+    font-size: 1rem;
   }
 }
 
 .timestamp {
   font-style: italic;
   color: #979797;
-  font-size:0.9rem;
+  font-size: 0.9rem;
 }
 
 .content {
@@ -60,9 +60,8 @@ export default {
   padding: 30px 0 15px 0;
 
   a:before {
-    content: "🔗"
+    content: "🔗";
   }
-
 }
 
 .content h2 {
@@ -70,13 +69,12 @@ export default {
   padding: 25px 0 10px 0;
 
   a:before {
-    content: "🔗"
+    content: "🔗";
   }
-
 }
 
 .content img {
-   width: 100%;
+  width: 100%;
   height: 100%;
 }
 </style>
