@@ -14,6 +14,9 @@
         👉 Full Stack Developer / Learning In Public / Building For Fun
       </p>
       <p>
+        <a class="icon" target="_blank" href="https://github.com/chiubaca">
+          <GithubIcon
+        /></a>
         <a class="icon" target="_blank" href="https://twitter.com/chiubaca">
           <TwitterIcon
         /></a>
@@ -38,6 +41,9 @@
       <hr />
       <div>
         <g-link to="/">home</g-link> /
+        <a class="icon" target="_blank" href="https://github.com/chiubaca">
+          github </a
+        >/
         <a class="icon" target="_blank" href="https://twitter.com/chiubaca">
           twitter
         </a>
@@ -57,12 +63,14 @@ import ThemeToggle from "@/components/ThemeToggle.vue";
 import TwitterIcon from "@/components/TwitterIcon.vue";
 import DevtoIcon from "@/components/DevtoIcon.vue";
 import LinkedinIcon from "@/components/LinkedinIcon.vue";
+import GithubIcon from "@/components/GithubIcon.vue";
 export default Vue.extend({
   components: {
     ThemeToggle,
     TwitterIcon,
     DevtoIcon,
     LinkedinIcon,
+    GithubIcon,
   },
 });
 </script>
