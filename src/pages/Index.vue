@@ -41,16 +41,6 @@
 
 <page-query>
   query {
-    archivedBlogs: allArchivedBlogs(order: ASC){
-      edges {
-        node {
-          title
-          categories
-          path
-          date
-        }
-      }
-    }
     articles: allDevToArticles(filter: {tags: {containsNone: ["devjournal"] }} order: ASC){
       edges {
         node{

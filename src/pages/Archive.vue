@@ -19,7 +19,7 @@
 
 <page-query>
   query {
-    archivedBlogs: allArchivedBlogs(order: ASC){
+    archivedBlogs: allArchivedBlogs(order: DESC){
       edges {
         node {
           title
