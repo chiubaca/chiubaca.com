@@ -14,14 +14,40 @@
         👉 Full Stack Developer / Learning In Public / Building For Fun
       </p>
       <p>
-        <a class="icon" target="_blank" href="https://twitter.com/chiubaca"> <TwitterIcon /></a>
-        <a class="icon" target="_blank" href="https://dev.to/chiubaca"> <DevtoIcon /></a>
-        <a class="icon" target="_blank" href="https://www.linkedin.com/in/achiu1/"> <LinkedinIcon /></a>
+        <a class="icon" target="_blank" href="https://twitter.com/chiubaca">
+          <TwitterIcon
+        /></a>
+        <a class="icon" target="_blank" href="https://dev.to/chiubaca">
+          <DevtoIcon
+        /></a>
+        <a
+          class="icon"
+          target="_blank"
+          href="https://www.linkedin.com/in/achiu1/"
+        >
+          <LinkedinIcon
+        /></a>
       </p>
       <hr />
     </header>
-    <!-- Content is slotted here -->
-    <slot />
+    <main class="main">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <hr />
+      <div>
+        <g-link to="/">home</g-link> /
+        <a class="icon" target="_blank" href="https://twitter.com/chiubaca">
+          twitter
+        </a>
+        /
+        <a class="icon" target="_blank" href="https://dev.to/chiubaca">
+          dev.to </a
+        >/
+        <a href="mailto:alexchiu11@gmail.com">email</a>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -50,6 +76,22 @@ query {
 </static-query>
 
 <style lang="scss">
+.layout {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.main {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.footer {
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -83,7 +125,7 @@ query {
     height: 20px;
     color: inherit;
     padding: 5px;
-      color: var(--primary);
+    color: var(--primary);
   }
 }
 </style>
