@@ -63,11 +63,7 @@
 </page-query>
 
 <script>
-import { Pager } from "gridsome";
 export default {
-  components: {
-    Pager,
-  },
   metaInfo: {
     title: "Blog",
   },
