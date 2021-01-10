@@ -17,13 +17,17 @@
 
     <section>
       <h1>📘 Dev Journal</h1>
-      <p>> Stories of success and mishaps whilst working on side projects</p>
+      <p>> Stories of successes and mishaps whilst working on side projects</p>
       <div
         class="post"
         v-for="blog in $page.devDiary.edges"
         :key="blog.node.id"
       >
-        <a :href="blog.node.url">{{ blog.node.title }}</a>
+        <a class="post__link" :href="blog.node.url">
+          <p>{{ blog.node.title }}</p>
+          <ExternalLinkIcon
+        /></a>
+
         <p class="timestamp">
           posted on : {{ new Date(blog.node.published_at).toDateString() }}
         </p>
@@ -63,7 +67,11 @@
 </page-query>
 
 <script>
+import ExternalLinkIcon from "@/components/ExternalLinkIcon.vue";
 export default {
+  components: {
+    ExternalLinkIcon,
+  },
   metaInfo: {
     title: "Blog",
   },
@@ -79,6 +87,13 @@ export default {
 .post {
   padding-top: 10px;
   line-height: 20px;
+}
+
+.post__link {
+  display: flex;
+  svg {
+    padding-left: 5px;
+  }
 }
 
 .archive * {

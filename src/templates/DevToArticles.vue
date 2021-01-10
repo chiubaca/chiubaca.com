@@ -22,14 +22,21 @@
 
     <p class="devto-link">
       <a :href="$page.article.url" target="_blank">
-        > View this blog over at DEV.to. Feel free to leave a comment.</a
+        > View this blog over at DEV.to. Feel free to leave a comment.
+              <ExternalLinkIcon />
+        </a
       >
+
     </p>
   </Layout>
 </template>
 
 <script>
+import ExternalLinkIcon from "@/components/ExternalLinkIcon.vue";
 export default {
+  components:{
+    ExternalLinkIcon
+  },
   metaInfo() {
     return {
       title: this.$page.article.title,
@@ -54,7 +61,17 @@ export default {
 
 <style lang="scss" scoped>
 .devto-link {
+
   padding: 20px 0;
   margin: 20px 0px;
+  a{
+      display: flex;
+      align-items: baseline;
+
+  }
+  a svg{
+     padding-left: 5px;
+  }
+
 }
 </style>
