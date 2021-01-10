@@ -18,6 +18,12 @@
       class="article__content"
       v-html="$page.article.parsed_markdown"
     ></article>
+
+    <p class="devto-link">
+      <a :href="$page.article.url" target="_blank">
+       > View this blog over at DEV.to. Feel free to leave a comment.</a
+      >
+    </p>
   </Layout>
 </template>
 
@@ -39,6 +45,14 @@ export default {
       published_at
       edited_at
       tags
+      url
     }
   }
 </page-query>
+
+<style lang="scss" scoped>
+.devto-link {
+  padding: 20px 0;
+  margin: 20px 0px;
+}
+</style>
