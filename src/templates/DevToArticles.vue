@@ -9,7 +9,15 @@
     <p class="article__timestamp">
       Last updated on : {{ new Date($page.article.edited_at).toDateString() }}
     </p>
-    <article class="article__content" v-html="$page.article.parsed_markdown"></article>
+    <ul class="article__tag-container">
+      <li class="tag-container__tag" v-for="(tag, index) in $page.article.tags">
+        #{{ tag }}
+      </li>
+    </ul>
+    <article
+      class="article__content"
+      v-html="$page.article.parsed_markdown"
+    ></article>
   </Layout>
 </template>
 
@@ -30,6 +38,7 @@ export default {
       parsed_markdown
       published_at
       edited_at
+      tags
     }
   }
 </page-query>

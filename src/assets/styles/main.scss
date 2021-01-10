@@ -60,12 +60,31 @@ p {
   line-height: 200%;
 }
 
+.article__tag-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.tag-container__tag {
+  background: gray;
+  margin-top:10px;
+  border-radius: 15px;
+  padding: 5px 8px;
+  font-family: 'Inconsolata', monospace, system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+}
+
+.tag-container__tag:not(:first-child) {
+  margin-left: 10px
+}
+
 .article__content h1 {
   font-size: 2rem;
   padding: 30px 0 15px 0;
 
   a:before {
     content: "🔗";
+    margin-right: 10px;
   }
 }
 
