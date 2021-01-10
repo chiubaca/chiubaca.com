@@ -75,14 +75,6 @@ export default Vue.extend({
 });
 </script>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <style lang="scss" scoped>
 // TODO: Find a way to anchor the footer to the bottom of the page
 //  This chunk of code breaks wrapping on titles
