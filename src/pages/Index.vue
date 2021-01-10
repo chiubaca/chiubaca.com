@@ -8,7 +8,7 @@
         v-for="blog in $page.articles.edges"
         :key="blog.node.id"
       >
-        <g-link :to="blog.node.path">{{ blog.node.title }}</g-link>
+        <g-link :to="blog.node.slug">{{ blog.node.title }}</g-link>
         <p class="timestamp">
           posted on : {{ new Date(blog.node.published_at).toDateString() }}
         </p>
@@ -45,8 +45,8 @@
       edges {
         node{
           title
-          path
           published_at
+          slug
         }
       }
     }

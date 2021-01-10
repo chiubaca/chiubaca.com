@@ -28,7 +28,7 @@ module.exports = {
   ],
   templates: {
     ArchivedBlogs: '/archive/:title',
-    DevToArticles: '/:title'
+    DevToArticles: '/:slug'
   },
   transformers: {
     remark: {
