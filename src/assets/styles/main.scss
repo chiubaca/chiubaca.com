@@ -31,12 +31,16 @@ body {
 a {
   text-decoration: none;
   color: var(--links);
+  font-size: 1.1rem;
 }
   
 a:hover {
   text-decoration: underline;
 }
 
+p {
+  font-size: 1.1rem;
+}
 
 .article__title {
   font-size: 2.5em;
@@ -80,17 +84,17 @@ a:hover {
 }
 
 /* On screens that are 600px or less, set the background color to olive */
-// @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
 
-//   .article__title{
-//     font-size: 1rem;
-//   }
+  .article__title{
+    font-size: 1.7rem;
+  }
 
-//   .article__title h1 {
-//     font-size: 1.4rem;
-//   }
+  .article__title h1 {
+    font-size: 1.4rem;
+  }
 
-//   .article__title h2 {
-//     font-size: 1.2rem;
-//   }
-// }
+  .article__title h2 {
+    font-size: 1.2rem;
+  }
+}
