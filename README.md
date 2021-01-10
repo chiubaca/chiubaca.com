@@ -1,14 +1,38 @@
-# Default starter for Gridsome
+[![Netlify Status](https://api.netlify.com/api/v1/badges/25cb6de7-ba37-4736-b165-1b002fb311d8/deploy-status)](https://app.netlify.com/sites/chiubaca-blog/deploys)
 
-This is the project you get when you run `gridsome create new-project`.
+# Chiubaca Blog / Website
 
-### 1. Install Gridsome CLI tool if you don't have
+> This is my personal website. The source code is open for learning purposes. Feel free to re-use _*parts*_ of this codebase with attribution.
 
-`npm install --global @gridsome/cli`
+This site has been bootstrapped with [Gridsome](https://gridsome.org/) and makes use of my [DEV.to source plugin](https://github.com/chiubaca/gridsome-source-devto) which I developed specifically for this blog.
 
-### 2. Create a Gridsome project
+## Local Development
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+### Pre-requisite Setup
+Ensure you have `.env` file with two variables
+
+`DEVTO_KEY` - Your DEV.to API key
+
+`CF_TOKEN` - Your Cloudflare Analytics token
+
+Example `.env` file.
+```
+DEVTO_KEY=<your-token-goes-here>
+CF_TOKEN=<your-token-goes-here>
+```
+
+### Install Dependencies
+
+```
+npm install
+```
+
+### Start Local Server with GraphQL Explorer 
+```
+npm run dev
+```
+
+## Build For Production
+```
+npm run generate
+```
