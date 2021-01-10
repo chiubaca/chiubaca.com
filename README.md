@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/25cb6de7-ba37-4736-b165-1b002fb311d8/deploy-status)](https://app.netlify.com/sites/chiubaca-blog/deploys)
 
-# Chiubaca Blog / Website
+# [chiubca.com](chiubca.com)
 
 > This is my personal website. The source code is open for learning purposes. Feel free to re-use _*parts*_ of this codebase with attribution.
 
