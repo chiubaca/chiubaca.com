@@ -10,7 +10,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
 
   head.script.push(
-    { src: "https://static.cloudflareinsights.com/beacon.min.js", "data-cf-beacon": `{'token': ${process.env.CF_TOKEN}}`, async: true, defer: true }
+    { src: "//gc.zgo.at/count.js", "data-goatcounter": `https://chiubaca.goatcounter.com/count`, async: true, defer: true }
   )
 
 }
