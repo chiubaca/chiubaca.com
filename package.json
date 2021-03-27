@@ -7,7 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "@chiubaca/gridsome-source-devto": "0.4.0",
+    "@chiubaca/gridsome-source-devto": "0.4.1",
     "@gridsome/remark-prismjs": "^0.5.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.4",

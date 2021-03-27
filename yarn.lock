@@ -846,10 +846,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@chiubaca/gridsome-source-devto@0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@chiubaca/gridsome-source-devto/-/gridsome-source-devto-0.4.0.tgz#4c4b4d0a2c0fe90f853a828cc40ce1200133429c"
-  integrity sha512-uHS+ZpW9kDAhZKn0AOGlvwP37HX/1472m6Hd1gFHAqr5UzfmknOLSX04C52jM0t515cdZ0qnZ5i6x8SlQ+Q0lw==
+"@chiubaca/gridsome-source-devto@0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@chiubaca/gridsome-source-devto/-/gridsome-source-devto-0.4.1.tgz#28c6259b8dec3bb148ce873725d4adacf41a36f2"
+  integrity sha512-Z+CjbWEsrP/L4330RN8+MbxI3DRurdTorLHe/PJ9c23GaRKg6Kjp9XhAlNSD+iJDrJgD+IdZbV6yXXSPfYyDnw==
   dependencies:
     axios "^0.21.1"
     gray-matter "^4.0.2"
