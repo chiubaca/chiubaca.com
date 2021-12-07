@@ -1,0 +1,49 @@
+---
+// Component Imports
+import BaseHead from "../components/BaseHead.astro";
+import BlogHeader from "../components/BlogHeader.astro";
+import BlogPostPreview from "../components/BlogPostPreview.astro";
+
+import DevToPublishedArticles from "../types.ts";
+
+const DEVTO_KEY = import.meta.env.PUBLIC_DEVTO;
+
+const ARTICLES_PER_PAGE = 1000;
+const page = 1;
+
+const response = await fetch(
+  `https://dev.to/api/articles/me/published?page=${page}&per_page=${ARTICLES_PER_PAGE}`,
+  {
+    headers: { "api-key": DEVTO_KEY },
+  }
+);
+
+const articles: DevToPublishedArticles[] = await response.json();
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title={"My Blog"}
+      description={"my blog"}
+      permalink={"https://chiubaca.com/"}
+    />
+  </head>
+
+  <body>
+    <BlogHeader />
+    <div class="wrapper">
+      <main class="content">
+        <section aria-label="Blog post list">
+          {articles.map((article) => (
+            <a href={`${article.slug}`}>
+              <div> {article.title} </div>
+              <div> {article.published_at}</div>
+              <div> {article.tag_list}</div>
+            </a>
+          ))}
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,38 +1,54 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/25cb6de7-ba37-4736-b165-1b002fb311d8/deploy-status)](https://app.netlify.com/sites/chiubaca-blog/deploys)
-
-# [chiubca.com](chiubca.com)
-
-> This is my personal website. The source code is open for learning purposes. Feel free to re-use _*parts*_ of this codebase with attribution.
-
-This site has been bootstrapped with [Gridsome](https://gridsome.org/) and makes use of my [DEV.to source plugin](https://github.com/chiubaca/gridsome-source-devto) which I developed specifically for this blog.
-
-## Local Development
-
-### Pre-requisite Setup
-Ensure you have `.env` file with two variables
-
-`DEVTO_KEY` - Your DEV.to API key
-
-`CF_TOKEN` - Your Cloudflare Analytics token
-
-Example `.env` file.
-```
-DEVTO_KEY=<your-token-goes-here>
-CF_TOKEN=<your-token-goes-here>
-```
-
-### Install Dependencies
+# Astro Starter Kit: Blog
 
 ```
-npm install
+npm init astro -- --template blog
 ```
 
-### Start Local Server with GraphQL Explorer 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
+
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+Features:
+
+- ✅ SEO-friendly setup with canonical URLs and OpenGraph data
+- ✅ Full Markdown support
+- ✅ RSS 2.0 generation
+- ✅ Sitemap.xml generation
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
 ```
-npm run dev
+/
+├── public/
+│   ├── robots.txt
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   └── Tour.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
 
-## Build For Production
-```
-npm run generate
-```
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command           | Action                                       |
+|:----------------  |:-------------------------------------------- |
+| `npm install`     | Installs dependencies                        |
+| `npm run dev`     | Starts local dev server at `localhost:3000`  |
+| `npm run build`   | Build your production site to `./dist/`      |
+| `npm run preview` | Preview your build locally, before deploying |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://github.com/withastro/astro) or jump into our [Discord server](https://astro.build/chat).

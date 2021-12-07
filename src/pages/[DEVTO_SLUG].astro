@@ -1,0 +1,52 @@
+---
+import { Markdown } from "astro/components";
+import BaseHead from "../components/BaseHead.astro";
+import DevToPublishedArticles from "../types.ts";
+
+export async function getStaticPaths() {
+  const DEVTO_KEY = import.meta.env.PUBLIC_DEVTO;
+
+  const ARTICLES_PER_PAGE = 1000;
+  const page = 1;
+
+  const response = await fetch(
+    `https://dev.to/api/articles/me/published?page=${page}&per_page=${ARTICLES_PER_PAGE}`,
+    {
+      headers: { "api-key": DEVTO_KEY },
+    }
+  );
+
+  const articles: DevToPublishedArticles[] = await response.json();
+
+  const pages = articles.map((article: DevToPublishedArticles) => {
+    return {
+      params: {
+        DEVTO_SLUG: article.slug,
+      },
+      props: {
+        md: article.body_markdown,
+      },
+    };
+  });
+
+  return pages;
+}
+const { DEVTO_SLUG } = Astro.request.params;
+const { md } = Astro.props;
+---
+
+<head>
+  <BaseHead
+    title={"My Blog"}
+    description={"my blog"}
+    permalink={"https://chiubaca.com/"}
+  />
+</head>
+
+<body
+  ><h1>{DEVTO_SLUG}</h1>
+
+  <Markdown content={md}>
+
+  </Markdown>
+</body>

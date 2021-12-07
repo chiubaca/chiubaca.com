@@ -1,24 +1,19 @@
 {
-  "name": "blog",
+  "name": "@example/blog",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "generate": "gridsome build",
-    "dev": "gridsome develop",
-    "explore": "gridsome explore"
-  },
-  "dependencies": {
-    "@chiubaca/gridsome-source-devto": "0.4.1",
-    "@gridsome/remark-prismjs": "^0.5.0",
-    "@gridsome/source-filesystem": "^0.6.2",
-    "@gridsome/transformer-remark": "^0.6.4",
-    "axios": "^0.21.1",
-    "gridsome": "^0.7.0"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "gridsome-plugin-typescript": "^0.4.0",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.1.0",
-    "ts-loader": "^8.0.14",
-    "typescript": "^4.1.3"
+    "@astrojs/renderer-preact": "^0.3.1",
+    "astro": "^0.21.11",
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb": "^19.0.1",
+    "prettier": "2.5.0",
+    "prettier-plugin-astro": "^0.0.11"
   }
 }
