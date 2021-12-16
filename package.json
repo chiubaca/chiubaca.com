@@ -15,5 +15,8 @@
     "eslint-config-airbnb": "^19.0.1",
     "prettier": "2.5.0",
     "prettier-plugin-astro": "^0.0.11"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.7"
   }
 }
