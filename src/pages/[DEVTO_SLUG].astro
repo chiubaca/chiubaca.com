@@ -1,6 +1,8 @@
 ---
 import { Markdown } from "astro/components";
 import BaseHead from "../components/BaseHead.astro";
+import BlogHeader from "../components/BlogHeader.astro";
+
 import DevToPublishedArticles from "../types.ts";
 
 export async function getStaticPaths() {
@@ -25,6 +27,7 @@ export async function getStaticPaths() {
       },
       props: {
         md: article.body_markdown,
+        url: article.url,
       },
     };
   });
@@ -32,7 +35,7 @@ export async function getStaticPaths() {
   return pages;
 }
 const { DEVTO_SLUG } = Astro.request.params;
-const { md } = Astro.props;
+const { md, url } = Astro.props;
 ---
 
 <head>
@@ -40,13 +43,23 @@ const { md } = Astro.props;
     title={"My Blog"}
     description={"my blog"}
     permalink={"https://chiubaca.com/"}
-  />
+  >
+    <link rel="stylesheet" href={Astro.resolve("../styles/prism.css")} />
+  </BaseHead>
 </head>
 
-<body
-  ><h1>{DEVTO_SLUG}</h1>
+<body>
+  <BlogHeader />
+  <h1>{DEVTO_SLUG}</h1>
 
   <Markdown content={md}>
 
   </Markdown>
+  {url}
 </body>
+
+<style>
+  h1 {
+    padding: 1rem 0;
+  }
+</style>

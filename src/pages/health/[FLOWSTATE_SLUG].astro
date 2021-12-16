@@ -1,0 +1,55 @@
+---
+import { Markdown } from "astro/components";
+import DevToPublishedArticles from "../../types.ts";
+import BaseHead from "../../components/BaseHead.astro";
+
+export async function getStaticPaths() {
+  const FLOWSTATE_KEY = import.meta.env.PUBLIC_FLOWSTATE;
+
+  const ARTICLES_PER_PAGE = 1000;
+  const page = 1;
+
+  const response = await fetch(
+    `https://flowstate.to/api/articles/me/published?page=${page}&per_page=${ARTICLES_PER_PAGE}`,
+    {
+      headers: { "api-key": FLOWSTATE_KEY },
+    }
+  );
+
+  const articles: DevToPublishedArticles[] = await response.json();
+  console.log(
+    "🚀 ~ file: [FLOWSTATE_SLUG].astro ~ line 20 ~ getStaticPaths ~ articles",
+    articles
+  );
+
+  const pages = articles.map((article: DevToPublishedArticles) => {
+    return {
+      params: {
+        FLOWSTATE_SLUG: article.slug,
+      },
+      props: {
+        md: article.body_markdown,
+        url: article.url,
+      },
+    };
+  });
+
+  return pages;
+}
+const { FLOWSTATE_SLUG } = Astro.request.params;
+const { md, url } = Astro.props;
+---
+
+<BaseHead
+  title={"My Blog"}
+  description={"my blog"}
+  permalink={"https://chiubaca.com/"}
+/>
+<body
+  ><h1>{FLOWSTATE_SLUG}</h1>
+
+  <Markdown content={md}>
+
+  </Markdown>
+  {url}
+</body>

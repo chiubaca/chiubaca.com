@@ -32,9 +32,11 @@ const { title, description, permalink } = Astro.props;
 <meta property="twitter:image" content="https://astro.build/social.jpg?v=1" />
 
 <!-- Styles -->
+
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-  id="theme"
+  type="text/css"
+  href={Astro.resolve("../styles/global.scss")}
 />
-<link rel="stylesheet" href={Astro.resolve("../styles/prism.css")} />
+
+<slot />

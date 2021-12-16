@@ -1,49 +1,119 @@
 ---
-// Component Imports
+import dayjs from "dayjs";
+
 import BaseHead from "../components/BaseHead.astro";
 import BlogHeader from "../components/BlogHeader.astro";
-import BlogPostPreview from "../components/BlogPostPreview.astro";
+import TagList from "../components/TagList/TagList.astro";
 
 import DevToPublishedArticles from "../types.ts";
 
 const DEVTO_KEY = import.meta.env.PUBLIC_DEVTO;
+const FLOWSTATE_KEY = import.meta.env.PUBLIC_FLOWSTATE;
 
 const ARTICLES_PER_PAGE = 1000;
 const page = 1;
 
-const response = await fetch(
+const devToResponse = await fetch(
   `https://dev.to/api/articles/me/published?page=${page}&per_page=${ARTICLES_PER_PAGE}`,
   {
     headers: { "api-key": DEVTO_KEY },
   }
 );
 
-const articles: DevToPublishedArticles[] = await response.json();
+const flowStateResponse = await fetch(
+  `https://flowstate.to/api/articles/me/published?page=${page}&per_page=${ARTICLES_PER_PAGE}`,
+  {
+    headers: { "api-key": FLOWSTATE_KEY },
+  }
+);
+
+const devToArticles: DevToPublishedArticles[] = await devToResponse.json();
+
+const flowStateArticles: DevToPublishedArticles[] =
+  await flowStateResponse.json();
 ---
 
 <html lang="en">
   <head>
     <BaseHead
-      title={"My Blog"}
-      description={"my blog"}
+      title={"Blog - Alex Chiu"}
+      description={"👉 Full Stack Developer / Learning In Public / Building For Fun"}
       permalink={"https://chiubaca.com/"}
     />
   </head>
 
   <body>
     <BlogHeader />
-    <div class="wrapper">
-      <main class="content">
-        <section aria-label="Blog post list">
-          {articles.map((article) => (
+    <main class="content">
+      <section class="dev-blogs-section blog-list" aria-label="Blog post list">
+        <h1>👨‍💻 Dev Blogs</h1>
+        <p class="subtext">
+          &gt; Web development and ramblings about programming
+        </p>
+
+        {devToArticles.map((article) => (
+          <div class="blog-title">
+            <p class="date">
+              {dayjs(article.published_at).format("D MMMM YYYY")}
+            </p>
             <a href={`${article.slug}`}>
-              <div> {article.title} </div>
-              <div> {article.published_at}</div>
-              <div> {article.tag_list}</div>
+              <h2> {article.title} </h2>
             </a>
-          ))}
-        </section>
-      </main>
-    </div>
+
+            <TagList tags={article.tag_list} />
+          </div>
+        ))}
+      </section>
+
+      <section class="blog-list" aria-label="Blog post list">
+        <h1>🧘 Health & Wellbeing</h1>
+        <p class="subtext">&gt; Notes about how i'm keeping fit and healthy</p>
+
+        {flowStateArticles.map((article) => (
+          <div class="blog-title">
+            <a href={`health/${article.slug}`}>
+              <h2> {article.title} </h2>
+            </a>
+            <p class="date">
+              {dayjs(article.published_at).format("D MMMM YYYY")}
+            </p>
+            <TagList tags={article.tag_list} />
+          </div>
+        ))}
+      </section>
+    </main>
   </body>
 </html>
+
+<style>
+  h1 {
+    padding: 0;
+  }
+
+  h2 {
+    padding: 0.3rem 0;
+  }
+
+  .subtext {
+    font-style: italic;
+    color: grey;
+  }
+
+  .blog-list {
+    padding-top: 2.5rem;
+  }
+
+  .blog-title {
+    padding: 1rem 0;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: grey;
+  }
+
+  .dev-blogs-section {
+    border-bottom: 2px dotted gray;
+    padding-bottom: 3rem;
+  }
+</style>
