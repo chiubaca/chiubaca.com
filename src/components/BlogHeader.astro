@@ -2,21 +2,25 @@
 import Logo from "../components/Logo.astro";
 ---
 
-<header>
+<header class="header">
   <Logo />
   <p class="slogan">
     👉 Full Stack Developer / Learning In Public / Building For Fun
   </p>
+  <slot />
 </header>
 
 <style>
   .slogan {
     font-size: 1.2rem;
     text-align: center;
-    padding: 1rem 0 2.5rem 0;
+    padding-top: 1rems;
     font-weight: 200;
     font-style: italic;
     color: grey;
+  }
+
+  .header {
     border-bottom: 2px dotted gray;
   }
 </style>

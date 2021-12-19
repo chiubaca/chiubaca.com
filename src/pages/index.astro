@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 
 import BaseHead from "../components/BaseHead.astro";
 import BlogHeader from "../components/BlogHeader.astro";
+import Links from "../components/Links.astro";
 import TagList from "../components/TagList/TagList.astro";
 
 import DevToPublishedArticles from "../types.ts";
@@ -43,7 +44,9 @@ const flowStateArticles: DevToPublishedArticles[] =
   </head>
 
   <body>
-    <BlogHeader />
+    <BlogHeader>
+      <Links />
+    </BlogHeader>
     <main class="content">
       <section class="dev-blogs-section blog-list" aria-label="Blog post list">
         <h1>👨‍💻 Dev Blogs</h1>
