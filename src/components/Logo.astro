@@ -23,11 +23,38 @@
     margin: 5px 0;
     display: block;
     visibility: visible;
-    animation: fadeIn 0.5s;
+    animation: bounce 0.5s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
     opacity: 0;
   }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(-150%);
+    }
+    30% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(0%);
+    }
+    70% {
+      transform: translateY(-100%);
+    }
+    80% {
+      transform: translateY(0%);
+    }
+    90% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
   @keyframes fadeIn {
     0% {
       transform: translateY(-150%);
