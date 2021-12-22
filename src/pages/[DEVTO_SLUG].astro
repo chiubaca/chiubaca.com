@@ -2,6 +2,8 @@
 import { Markdown } from "astro/components";
 import BaseHead from "../components/BaseHead.astro";
 import BlogHeader from "../components/BlogHeader.astro";
+import Links from "../components/Links.astro";
+import TagList from "../components/TagList/TagList.astro";
 
 import DevToPublishedArticles from "../types.ts";
 
@@ -28,6 +30,8 @@ export async function getStaticPaths() {
       props: {
         md: article.body_markdown,
         url: article.url,
+        title: article.title,
+        tags: article.tag_list,
       },
     };
   });
@@ -35,7 +39,7 @@ export async function getStaticPaths() {
   return pages;
 }
 const { DEVTO_SLUG } = Astro.request.params;
-const { md, url } = Astro.props;
+const { md, url, title, tags } = Astro.props;
 ---
 
 <head>
@@ -49,17 +53,58 @@ const { md, url } = Astro.props;
 </head>
 
 <body>
-  <BlogHeader />
-  <h1>{DEVTO_SLUG}</h1>
+  <BlogHeader>
+    <Links />
+  </BlogHeader>
+  <header>
+    <h1>{title}</h1>
+    <TagList {tags} />
+  </header>
 
   <Markdown content={md}>
 
   </Markdown>
-  {url}
+
+  <div class="link-to-dev">
+    <a href={url} target="_blank">
+      View this blog over at DEV.to to leave a comment
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        aria-hidden="true"
+        role="img"
+        class="iconify iconify--octicon"
+        width="32"
+        height="32"
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 16 16"
+        ><path
+          fill-rule="evenodd"
+          d="M10.604 1h4.146a.25.25 0 0 1 .25.25v4.146a.25.25 0 0 1-.427.177L13.03 4.03L9.28 7.78a.75.75 0 0 1-1.06-1.06l3.75-3.75l-1.543-1.543A.25.25 0 0 1 10.604 1zM3.75 2A1.75 1.75 0 0 0 2 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0 0 14 12.25v-3.5a.75.75 0 0 0-1.5 0v3.5a.25.25 0 0 1-.25.25h-8.5a.25.25 0 0 1-.25-.25v-8.5a.25.25 0 0 1 .25-.25h3.5a.75.75 0 0 0 0-1.5h-3.5z"
+          fill="currentColor"></path></svg
+      >
+    </a>
+  </div>
 </body>
 
-<style>
+<style lang="scss">
   h1 {
     padding: 1rem 0;
+  }
+
+  p {
+    padding: 0.5rem 0;
+  }
+
+  header {
+    margin: 2rem 0;
+  }
+
+  .link-to-dev {
+    color: lightskyblue;
+    svg {
+      height: 1rem;
+    }
   }
 </style>

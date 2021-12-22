@@ -7,7 +7,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Inconsolata', monospace, system-ui, -apple-system, sans-serif;
+  font-family:  monospace, system-ui, -apple-system, sans-serif;
   font-weight: 600;
 }
 
@@ -31,6 +31,17 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+p{
+  font-size: 1.15em;
+}
+
+code{
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  color: #780303;
+  padding: 2px;
+}
+
 a {
   text-decoration: none;
   color: var(--links);
@@ -38,4 +49,8 @@ a {
   
 a:hover {
   text-decoration: underline;
+}
+
+hr {
+  margin: 2rem 2rem 
 }
