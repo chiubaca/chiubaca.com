@@ -44,9 +44,9 @@ const { md, url, title, tags } = Astro.props;
 
 <head>
   <BaseHead
-    title={"My Blog"}
+    title={"chiubaca | " + title}
     description={"my blog"}
-    permalink={"https://chiubaca.com/"}
+    permalink={"https://chiubaca.com/" + DEVTO_SLUG}
   >
     <link rel="stylesheet" href={Astro.resolve("../styles/prism.css")} />
   </BaseHead>
