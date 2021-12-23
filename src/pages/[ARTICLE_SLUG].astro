@@ -1,0 +1,78 @@
+---
+import { Markdown } from "astro/components";
+import BaseHead from "../components/BaseHead.astro";
+import BlogHeader from "../components/BlogHeader.astro";
+import Links from "../components/Links.astro";
+import TagList from "../components/TagList/TagList.astro";
+import ViewAtForemSite from "../components/ViewAtForemSite.astro";
+
+import { allForemArticles } from "../utils/getAllForemArticles";
+
+export async function getStaticPaths() {
+  const pages = allForemArticles.map((article) => {
+    return {
+      params: {
+        ARTICLE_SLUG: article.slug,
+      },
+      props: {
+        md: article.body_markdown,
+        url: article.url,
+        title: article.title,
+        tags: article.tag_list,
+        source: article.source,
+      },
+    };
+  });
+
+  return pages;
+}
+const { DEVTO_SLUG } = Astro.request.params;
+const { md, url, title, tags, source } = Astro.props;
+---
+
+<head>
+  <BaseHead
+    title={"chiubaca | " + title}
+    description={"my blog"}
+    permalink={"https://chiubaca.com/" + DEVTO_SLUG}
+  >
+    <link rel="stylesheet" href={Astro.resolve("../styles/prism.css")} />
+  </BaseHead>
+</head>
+
+<body>
+  <BlogHeader>
+    <Links />
+  </BlogHeader>
+  <header>
+    <h1>{title}</h1>
+    <TagList {tags} />
+  </header>
+
+  <Markdown content={md}>
+
+  </Markdown>
+
+  <ViewAtForemSite {source} {url} />
+</body>
+
+<style lang="scss">
+  h1 {
+    padding: 1rem 0;
+  }
+
+  p {
+    padding: 0.5rem 0;
+  }
+
+  header {
+    margin: 2rem 0;
+  }
+
+  .link-to-dev {
+    color: lightskyblue;
+    svg {
+      height: 1rem;
+    }
+  }
+</style>

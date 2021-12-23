@@ -24,7 +24,7 @@
       text_color_hex: string;
   }
 
-  export interface DevToPublishedArticles {
+  export interface ForemPublishedArticles {
       type_of: string;
       id: number;
       title: string;
@@ -48,6 +48,4 @@
       organization: Organization;
       flare_tag: FlareTag;
   }
-
-
 

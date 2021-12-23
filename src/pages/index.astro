@@ -6,32 +6,14 @@ import BlogHeader from "../components/BlogHeader.astro";
 import Links from "../components/Links.astro";
 import TagList from "../components/TagList/TagList.astro";
 
-import DevToPublishedArticles from "../types.ts";
+import { allForemArticles } from "../utils/getAllForemArticles";
 
-const DEVTO_KEY = import.meta.env.PUBLIC_DEVTO;
-const FLOWSTATE_KEY = import.meta.env.PUBLIC_FLOWSTATE;
-
-const ARTICLES_PER_PAGE = 1000;
-const page = 1;
-
-const devToResponse = await fetch(
-  `https://dev.to/api/articles/me/published?page=${page}&per_page=${ARTICLES_PER_PAGE}`,
-  {
-    headers: { "api-key": DEVTO_KEY },
-  }
+const devToArticles = allForemArticles.filter(
+  (article) => article.source === "devto"
 );
-
-const flowStateResponse = await fetch(
-  `https://flowstate.to/api/articles/me/published?page=${page}&per_page=${ARTICLES_PER_PAGE}`,
-  {
-    headers: { "api-key": FLOWSTATE_KEY },
-  }
+const flowStateArticles = allForemArticles.filter(
+  (article) => article.source === "flowstate"
 );
-
-const devToArticles: DevToPublishedArticles[] = await devToResponse.json();
-
-const flowStateArticles: DevToPublishedArticles[] =
-  await flowStateResponse.json();
 ---
 
 <html lang="en">
@@ -74,7 +56,7 @@ const flowStateArticles: DevToPublishedArticles[] =
 
         {flowStateArticles.map((article) => (
           <div class="blog-title">
-            <a href={`health/${article.slug}`}>
+            <a href={`${article.slug}`}>
               <h2> {article.title} </h2>
             </a>
             <p class="date">
