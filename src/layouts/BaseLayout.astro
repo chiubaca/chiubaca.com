@@ -1,0 +1,15 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+
+const { content } = Astro.props;
+const { title, description, publishDate, author, heroImage, permalink, alt } =
+  content;
+---
+
+<html lang={content.lang || "en"}>
+  <BaseHead {title} {description} {permalink} />
+
+  <body>
+    <slot />
+  </body>
+</html>

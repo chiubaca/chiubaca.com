@@ -1,0 +1,84 @@
+<a href="/">
+  <div class="nav-logo">
+    <p class="nav-logo__title">Alex Chiu</p>
+    <p class="nav-logo__sub">/•chiubaca•/</p>
+  </div>
+</a>
+
+<style lang="scss">
+  a {
+    text-decoration: none;
+  }
+
+  .nav-logo {
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .nav-logo > .nav-logo__sub {
+    margin: 5px 0;
+    display: block;
+    visibility: visible;
+    animation: fadeIn 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(-150%);
+    }
+    30% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(0%);
+    }
+    70% {
+      transform: translateY(-100%);
+    }
+    80% {
+      transform: translateY(0%);
+    }
+    90% {
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      transform: translateY(-150%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  .nav-logo__title {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .nav-logo__sub {
+    margin: 5px 0;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 7px;
+    visibility: hidden;
+  }
+</style>

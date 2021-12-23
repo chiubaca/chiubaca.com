@@ -1,0 +1,104 @@
+---
+import dayjs from "dayjs";
+
+import BaseHead from "../components/BaseHead.astro";
+import BlogHeader from "../components/BlogHeader.astro";
+import Links from "../components/Links.astro";
+import TagList from "../components/TagList/TagList.astro";
+
+import { allForemArticles } from "../utils/getAllForemArticles";
+
+const devToArticles = allForemArticles.filter(
+  (article) => article.source === "devto"
+);
+const flowStateArticles = allForemArticles.filter(
+  (article) => article.source === "flowstate"
+);
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title={"chiubaca"}
+      description={"👉 Full Stack Developer / Learning In Public / Building For Fun"}
+      permalink={"https://chiubaca.com/"}
+    />
+  </head>
+
+  <body>
+    <BlogHeader>
+      <Links />
+    </BlogHeader>
+    <main class="content">
+      <section class="dev-blogs-section blog-list" aria-label="Blog post list">
+        <h1>👨‍💻 Dev Blogs</h1>
+        <p class="subtext">
+          &gt; Web development and ramblings about programming
+        </p>
+
+        {devToArticles.map((article) => (
+          <div class="blog-title">
+            <p class="date">
+              {dayjs(article.published_at).format("D MMMM YYYY")}
+            </p>
+            <a href={`${article.slug}`}>
+              <h2> {article.title} </h2>
+            </a>
+
+            <TagList tags={article.tag_list} />
+          </div>
+        ))}
+      </section>
+
+      <section class="blog-list" aria-label="Blog post list">
+        <h1>🧘 Health & Wellbeing</h1>
+        <p class="subtext">&gt; Notes about how i'm keeping fit and healthy</p>
+
+        {flowStateArticles.map((article) => (
+          <div class="blog-title">
+            <a href={`${article.slug}`}>
+              <h2> {article.title} </h2>
+            </a>
+            <p class="date">
+              {dayjs(article.published_at).format("D MMMM YYYY")}
+            </p>
+            <TagList tags={article.tag_list} />
+          </div>
+        ))}
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  h1 {
+    padding: 0;
+  }
+
+  h2 {
+    padding: 0.3rem 0;
+  }
+
+  .subtext {
+    font-style: italic;
+    color: grey;
+  }
+
+  .blog-list {
+    padding-top: 2.5rem;
+  }
+
+  .blog-title {
+    padding: 1rem 0;
+  }
+
+  .date {
+    font-size: 0.8rem;
+    color: grey;
+  }
+
+  .dev-blogs-section {
+    border-bottom: 2px dotted gray;
+    padding-bottom: 3rem;
+  }
+</style>

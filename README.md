@@ -1,20 +1,22 @@
-# My Blog
+# My Dev / Health / Life blog site 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/25cb6de7-ba37-4736-b165-1b002fb311d8/deploy-status)](https://app.netlify.com/sites/chiubaca-blog/deploys)
-## Build Setup
 
-```bash
-# install dependencies
-$ npm install
+Built with [Astro.js](https://astro.build/)
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+## Local Dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+> install
 
-# generate static project
-$ npm run generate
-```
+`yarn`
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+> run
+
+`yarn dev`
+
+
+## TODO
+
+- [ ] Theme toggle
+- [ ] Pretty URLS redirects
+
+ 

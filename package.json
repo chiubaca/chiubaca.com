@@ -1,44 +1,21 @@
 {
-  "name": "chiubaca-dev-blog",
-  "version": "1.0.0",
+  "name": "@example/blog",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "npm run lint:js"
-  },
-  "dependencies": {
-    "@nuxt/content": "^1.9.0",
-    "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/axios": "^5.12.2",
-    "core-js": "^3.6.5",
-    "highlight.js": "^10.5.0",
-    "nuxt": "^2.14.6"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.6",
-    "@nuxt/typescript-build": "^2.0.3",
-    "@nuxtjs/eslint-config": "^3.1.0",
-    "@nuxtjs/eslint-config-typescript": "^3.0.0",
-    "@nuxtjs/eslint-module": "^2.0.0",
-    "@octokit/rest": "^18.0.9",
-    "axios": "^0.21.1",
-    "babel-eslint": "^10.1.0",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.10.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-nuxt": "^1.0.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "fibers": "^5.0.0",
-    "prettier": "^2.1.2",
-    "rehype-format": "^3.1.0",
-    "rehype-stringify": "^8.0.0",
-    "sass": "^1.32.0",
-    "sass-loader": "^10.1.0",
-    "unified": "^9.2.0",
-    "vfile-reporter": "^6.0.2"
+    "astro": "0.21.12",
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb": "^19.0.1",
+    "prettier": "2.5.0",
+    "prettier-plugin-astro": "^0.0.11"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.7"
   }
 }

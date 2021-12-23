@@ -1,0 +1,31 @@
+---
+export interface Props {
+  tag: string;
+}
+
+const { tag } = Astro.props;
+---
+
+<span class="tag">
+  {tag}
+</span>
+
+<style>
+  .tag {
+    /* Github copilot create styled this 🤯 */
+    background-color: #f5f5f5;
+    border-radius: 2px;
+    color: #333;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 14px;
+    margin-bottom: 5px;
+    padding: 3px 5px;
+    text-transform: uppercase;
+  }
+
+  .tag::before {
+    content: "#";
+  }
+</style>

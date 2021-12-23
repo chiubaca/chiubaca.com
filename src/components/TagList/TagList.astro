@@ -1,0 +1,21 @@
+---
+import Tag from "./Tag.astro";
+export interface Props {
+  tags: string[];
+  theme?: "center";
+}
+
+const { tags, theme } = Astro.props;
+---
+
+<div data-theme={theme}>
+  {tags.map((tag) => <Tag tag={tag} />)}
+</div>
+
+<style>
+  [data-theme="center"] {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+</style>
