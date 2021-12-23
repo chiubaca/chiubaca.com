@@ -45,8 +45,8 @@ const { md, url, title, tags, source } = Astro.props;
     <Links />
   </BlogHeader>
   <header>
+    <TagList {tags} theme="center" />
     <h1>{title}</h1>
-    <TagList {tags} />
   </header>
 
   <Markdown content={md}>
