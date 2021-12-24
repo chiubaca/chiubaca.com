@@ -1,0 +1,95 @@
+<div class="switch-toggle">
+  <input
+    id="dark"
+    name="theme"
+    type="radio"
+    checked=""
+    onchange="setTheme(this)"
+    value="dark"
+  />
+  <label for="dark" class="dark">🌜</label>
+
+  <input
+    id="system"
+    name="theme"
+    type="radio"
+    checked="checked"
+    onchange="setTheme(this)"
+    value="system"
+  />
+  <label for="system" class="system">🖥</label>
+
+  <input
+    id="light"
+    name="theme"
+    type="radio"
+    onchange="setTheme(this)"
+    value="light"
+  />
+  <label for="light" class="light">🌞</label>
+</div>
+
+<script hoist>
+  const HTMLElement = document.querySelector("html");
+
+  function setTheme(radio) {
+    console.log(
+      "🚀 ~ file: ThemeToggle.astro ~ line 36 ~ setTheme ~ radio",
+      HTMLElement
+    );
+    HTMLElement.setAttribute("data-theme", radio.value);
+  }
+</script>
+
+<style>
+  .demo-container {
+    height: 100vh;
+    transition: background-color 250ms linear;
+
+    background: var(--background);
+    /*   background: var(--backgroundgraident); */
+  }
+
+  .center {
+    display: flex;
+    height: 100%;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .switch-toggle {
+    display: flex;
+    padding: 10px;
+  }
+
+  [type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  label {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    border: 5px solid #ddd;
+  }
+
+  label.dark {
+    border-radius: 10px 0 0 10px;
+  }
+
+  label.light {
+    border-radius: 0 10px 10px 0;
+  }
+
+  input[type="radio"]:checked + label {
+    background-color: grey;
+    border: 5px solid grey;
+  }
+
+  input[type="radio"]:focus + label {
+    border: 5px solid #59a1e9;
+  }
+</style>

@@ -5,6 +5,7 @@ import BlogHeader from "../components/BlogHeader.astro";
 import Links from "../components/Links.astro";
 import TagList from "../components/TagList/TagList.astro";
 import ViewAtForemSite from "../components/ViewAtForemSite.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 import { allForemArticles } from "../utils/getAllForemArticles";
 
@@ -44,6 +45,7 @@ const { md, url, title, tags, source } = Astro.props;
   <BlogHeader>
     <Links />
   </BlogHeader>
+  <ThemeToggle />
   <header>
     <TagList {tags} theme="center" />
     <h1>{title}</h1>

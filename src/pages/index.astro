@@ -5,6 +5,7 @@ import BaseHead from "../components/BaseHead.astro";
 import BlogHeader from "../components/BlogHeader.astro";
 import Links from "../components/Links.astro";
 import TagList from "../components/TagList/TagList.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 import { allForemArticles } from "../utils/getAllForemArticles";
 
@@ -29,6 +30,7 @@ const flowStateArticles = allForemArticles.filter(
     <BlogHeader>
       <Links />
     </BlogHeader>
+    <ThemeToggle />
     <main class="content">
       <section class="dev-blogs-section blog-list" aria-label="Blog post list">
         <h1>👨‍💻 Dev Blogs</h1>
