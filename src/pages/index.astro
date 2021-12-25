@@ -1,11 +1,8 @@
 ---
 import dayjs from "dayjs";
 
-import BaseHead from "../components/BaseHead.astro";
-import BlogHeader from "../components/BlogHeader.astro";
-import Links from "../components/Links.astro";
+import HomeLayout from "../layouts/HomeLayout.astro";
 import TagList from "../components/TagList/TagList.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
 
 import { allForemArticles } from "../utils/getAllForemArticles";
 
@@ -17,60 +14,50 @@ const flowStateArticles = allForemArticles.filter(
 );
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead
-      title={"chiubaca"}
-      description={"👉 Full Stack Developer / Learning In Public / Building For Fun"}
-      permalink={"https://chiubaca.com/"}
-    />
-  </head>
+<HomeLayout
+  title={"chiubaca"}
+  description={"👉 Full Stack Developer / Learning In Public / Building For Fun"}
+  permalink={"https://chiubaca.com/"}
+>
+  <main class="content">
+    <section class="dev-blogs-section blog-list" aria-label="Blog post list">
+      <h1>👨‍💻 Dev Blogs</h1>
+      <p class="subtext">
+        &gt; Web development and ramblings about programming
+      </p>
 
-  <body>
-    <BlogHeader>
-      <Links />
-    </BlogHeader>
-    <ThemeToggle />
-    <main class="content">
-      <section class="dev-blogs-section blog-list" aria-label="Blog post list">
-        <h1>👨‍💻 Dev Blogs</h1>
-        <p class="subtext">
-          &gt; Web development and ramblings about programming
-        </p>
+      {devToArticles.map((article) => (
+        <div class="blog-title">
+          <p class="date">
+            {dayjs(article.published_at).format("D MMMM YYYY")}
+          </p>
+          <a href={`${article.slug}`}>
+            <h2> {article.title} </h2>
+          </a>
 
-        {devToArticles.map((article) => (
-          <div class="blog-title">
-            <p class="date">
-              {dayjs(article.published_at).format("D MMMM YYYY")}
-            </p>
-            <a href={`${article.slug}`}>
-              <h2> {article.title} </h2>
-            </a>
+          <TagList tags={article.tag_list} />
+        </div>
+      ))}
+    </section>
 
-            <TagList tags={article.tag_list} />
-          </div>
-        ))}
-      </section>
+    <section class="blog-list" aria-label="Blog post list">
+      <h1>🧘 Health & Wellbeing</h1>
+      <p class="subtext">&gt; Notes about how i'm keeping fit and healthy</p>
 
-      <section class="blog-list" aria-label="Blog post list">
-        <h1>🧘 Health & Wellbeing</h1>
-        <p class="subtext">&gt; Notes about how i'm keeping fit and healthy</p>
-
-        {flowStateArticles.map((article) => (
-          <div class="blog-title">
-            <a href={`${article.slug}`}>
-              <h2> {article.title} </h2>
-            </a>
-            <p class="date">
-              {dayjs(article.published_at).format("D MMMM YYYY")}
-            </p>
-            <TagList tags={article.tag_list} />
-          </div>
-        ))}
-      </section>
-    </main>
-  </body>
-</html>
+      {flowStateArticles.map((article) => (
+        <div class="blog-title">
+          <a href={`${article.slug}`}>
+            <h2> {article.title} </h2>
+          </a>
+          <p class="date">
+            {dayjs(article.published_at).format("D MMMM YYYY")}
+          </p>
+          <TagList tags={article.tag_list} />
+        </div>
+      ))}
+    </section>
+  </main>
+</HomeLayout>
 
 <style>
   h1 {

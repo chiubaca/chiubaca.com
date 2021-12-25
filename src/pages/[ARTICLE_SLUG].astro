@@ -1,11 +1,8 @@
 ---
+import ArticleLayout from "../layouts/ArticleLayout.astro";
 import { Markdown } from "astro/components";
-import BaseHead from "../components/BaseHead.astro";
-import BlogHeader from "../components/BlogHeader.astro";
-import Links from "../components/Links.astro";
 import TagList from "../components/TagList/TagList.astro";
 import ViewAtForemSite from "../components/ViewAtForemSite.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
 
 import { allForemArticles } from "../utils/getAllForemArticles";
 
@@ -31,21 +28,11 @@ const { DEVTO_SLUG } = Astro.request.params;
 const { md, url, title, tags, source } = Astro.props;
 ---
 
-<head>
-  <BaseHead
-    title={"chiubaca | " + title}
-    description={"my blog"}
-    permalink={"https://chiubaca.com/" + DEVTO_SLUG}
-  >
-    <link rel="stylesheet" href={Astro.resolve("../styles/prism.css")} />
-  </BaseHead>
-</head>
-
-<body>
-  <BlogHeader>
-    <Links />
-  </BlogHeader>
-  <ThemeToggle />
+<ArticleLayout
+  title={"chiubaca | " + title}
+  description={"my blog"}
+  permalink={"https://chiubaca.com/" + DEVTO_SLUG}
+>
   <header>
     <TagList {tags} theme="center" />
     <h1>{title}</h1>
@@ -56,7 +43,7 @@ const { md, url, title, tags, source } = Astro.props;
   </Markdown>
 
   <ViewAtForemSite {source} {url} />
-</body>
+</ArticleLayout>
 
 <style lang="scss">
   h1 {
