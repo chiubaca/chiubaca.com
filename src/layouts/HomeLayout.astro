@@ -21,9 +21,20 @@ const { title, description, permalink } = Astro.props;
     <BlogHeader>
       <Links />
     </BlogHeader>
-    <ThemeToggle />
+
+    <div class="theme-toggle-container">
+      <ThemeToggle />
+    </div>
     <main>
       <slot />
     </main>
   </body>
 </html>
+
+<style>
+  .theme-toggle-container {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+</style>
