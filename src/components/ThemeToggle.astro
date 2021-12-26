@@ -7,7 +7,22 @@
     onchange="setTheme(this)"
     value="dark"
   />
-  <label for="dark" class="dark">🌜</label>
+  <label for="dark" class="dark"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      aria-hidden="true"
+      role="img"
+      class="moon-icon"
+      width="32"
+      height="32"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 256 256"
+      ><path
+        d="M224.3 154.9A100 100 0 1 1 101 31.7a7.9 7.9 0 0 1 10.3 8.1a5.7 5.7 0 0 1-.3 1.8A84 84 0 0 0 214.3 145l2.2-.4a8.1 8.1 0 0 1 7.8 5.7a7.2 7.2 0 0 1 0 4.6z"
+        fill="currentColor"></path></svg
+    ></label
+  >
 
   <input
     id="system"
@@ -17,7 +32,22 @@
     onchange="setTheme(this)"
     value="system"
   />
-  <label for="system" class="system">🖥</label>
+  <label for="system" class="system"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      aria-hidden="true"
+      role="img"
+      class="system-icon"
+      width="32"
+      height="32"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 24 24"
+      ><path
+        d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10zm-6.671-5.575A8 8 0 1 0 16.425 5.328a8.997 8.997 0 0 1-2.304 8.793a8.997 8.997 0 0 1-8.792 2.304z"
+        fill="currentColor"></path></svg
+    ></label
+  >
 
   <input
     id="light"
@@ -26,7 +56,22 @@
     onchange="setTheme(this)"
     value="light"
   />
-  <label for="light" class="light">🌞</label>
+  <label for="light" class="light"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      aria-hidden="true"
+      role="img"
+      class="sun-icon"
+      width="32"
+      height="32"
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="0 0 24 24"
+      ><path
+        d="M6.76 4.84l-1.8-1.79l-1.41 1.41l1.79 1.79l1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41l-1.79 1.79l1.41 1.41l1.79-1.79zm-3.21 13.7l1.79 1.8l1.41-1.41l-1.8-1.79l-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6s6-2.69 6-6s-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41l1.79-1.8l-1.41-1.41l-1.79 1.8z"
+        fill="currentColor"></path></svg
+    ></label
+  >
 </div>
 
 <script hoist>
@@ -37,26 +82,14 @@
   }
 </script>
 
-<style>
-  .demo-container {
-    height: 100vh;
-    transition: background-color 250ms linear;
-
-    background: var(--background);
-    /*   background: var(--backgroundgraident); */
-  }
-
-  .center {
-    display: flex;
-    height: 100%;
-    align-content: center;
-    justify-content: space-around;
-    align-items: center;
-  }
-
+<style lang="scss">
   .switch-toggle {
     display: flex;
-    padding: 10px;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50px;
+    border: 1px solid var(--primary-text);
+    background-color: var(--background);
   }
 
   [type="radio"] {
@@ -66,26 +99,51 @@
   }
 
   label {
-    display: inline-block;
-    background-color: #ddd;
-    padding: 10px 20px;
-    border: 5px solid #ddd;
+    display: flex;
+
+    padding: 5px 5px;
+    border-radius: 50px;
   }
 
-  label.dark {
-    border-radius: 10px 0 0 10px;
-  }
-
-  label.light {
-    border-radius: 0 10px 10px 0;
+  input[type="radio"] + label {
+    svg {
+      height: 15px;
+    }
   }
 
   input[type="radio"]:checked + label {
-    background-color: grey;
-    border: 5px solid grey;
+    border: 1px solid;
+    border-radius: 20px;
+
+    .moon-icon {
+      animation: spin 0.5s;
+    }
+    .system-icon {
+      animation: spin 0.5s;
+    }
+    .sun-icon {
+      animation: spin 0.5s;
+    }
   }
 
   input[type="radio"]:focus + label {
-    border: 5px solid #59a1e9;
+    border: 1px solid #59a1e9;
+    border-radius: 20px;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+
+    60% {
+      transform: rotate(-30deg);
+    }
+    100% {
+      transform: rotate(370deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 </style>
