@@ -4,7 +4,7 @@
     name="theme"
     type="radio"
     checked=""
-    onchange="setTheme(this)"
+    onchange="setTheme(this.value)"
     value="dark"
   />
   <label for="dark" class="dark"
@@ -29,7 +29,7 @@
     name="theme"
     type="radio"
     checked="checked"
-    onchange="setTheme(this)"
+    onchange="setTheme(this.value)"
     value="system"
   />
   <label for="system" class="system"
@@ -53,7 +53,7 @@
     id="light"
     name="theme"
     type="radio"
-    onchange="setTheme(this)"
+    onchange="setTheme(this.value)"
     value="light"
   />
   <label for="light" class="light"
@@ -74,11 +74,36 @@
   >
 </div>
 
-<script hoist>
+<script>
   const HTMLElement = document.querySelector("html");
 
-  function setTheme(radio) {
-    HTMLElement.setAttribute("data-theme", radio.value);
+  const lightInput = document.getElementById("light");
+
+  const systemInput = document.getElementById("system");
+
+  const darkInput = document.getElementById("dark");
+
+  const themeSetting = localStorage.getItem("theme");
+
+  function setTheme(theme) {
+    HTMLElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }
+
+  switch (themeSetting) {
+    case "dark":
+      darkInput.checked = true;
+      setTheme("dark");
+      break;
+    case "light":
+      lightInput.checked = true;
+      setTheme("light");
+      break;
+
+    default:
+      systemInput.checked = true;
+      setTheme("system");
+      break;
   }
 </script>
 
